@@ -1,0 +1,31 @@
+---
+galaxy_info:
+  role_name: infracost
+  author: darkwizard242
+  description: Installs/Uninstalls 'infracost'. Infracost shows cloud cost estimates for Terraform.
+  company: none
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+        - focal
+        - bionic
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+        - stretch
+    - name: EL
+      versions:
+        - 8
+        - 7
+
+  galaxy_tags:
+    - infracost
+    - terraform
+    - cost
+    - system
+    - os
