@@ -1,0 +1,12 @@
+---
+# defaults file for infracost
+
+infracost_app: infracost
+infracost_version: 0.10.1
+infracost_os: linux
+infracost_arch: amd64
+infracost_dl_url: https://github.com/{{ infracost_app }}/{{ infracost_app }}/releases/download/v{{ infracost_version }}/{{ infracost_app }}-{{ infracost_os }}-{{ infracost_arch }}.tar.gz
+infracost_bin_path: /usr/local/bin
+infracost_file_owner: root
+infracost_file_group: root
+infracost_file_permission_mode: '0755'

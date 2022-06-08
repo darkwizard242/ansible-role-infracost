@@ -1,0 +1,14 @@
+---
+# tasks file for infracost | Debian/Ubuntu Family
+
+- name: Debian/Ubuntu Family | Downloading and extracting {{ infracost_app }} {{ infracost_version }}
+  ansible.builtin.unarchive:
+    src: "{{ infracost_dl_url }}"
+    dest: "{{ infracost_bin_path }}"
+    extra_opts:
+      - --transform
+      - s/{{ infracost_app }}\-{{ infracost_os }}\-{{ infracost_arch }}/{{ infracost_app }}/
+    remote_src: yes
+    owner: "{{ infracost_file_owner }}"
+    group: "{{ infracost_file_group }}"
+    mode: "{{ infracost_file_permission_mode }}"
