@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 infracost_app: infracost
-infracost_version: 0.10.13
+infracost_version: 0.10.14
 infracost_os: linux
 infracost_arch: amd64
 infracost_dl_url: https://github.com/{{ infracost_app }}/{{ infracost_app }}/releases/download/v{{ infracost_version }}/{{ infracost_app }}-{{ infracost_os }}-{{ infracost_arch }}.tar.gz
@@ -31,7 +31,7 @@ infracost_file_permission_mode: '0755'
 Variable                       | Description
 ------------------------------ | -----------------------------------------------------------------------------------------------------------------------------------------------------------
 infracost_app                  | Defines the app to install i.e. **infracost**
-infracost_version              | Defined to dynamically fetch the desired version to install. Defaults to: **0.10.13**
+infracost_version              | Defined to dynamically fetch the desired version to install. Defaults to: **0.10.14**
 infracost_os                   | Defines os type. Defaults to: **linux**
 infracost_arch                 | Defines os architecture. Defaults to: **amd64**
 infracost_dl_url               | Defines URL to download the infracost binary from.
