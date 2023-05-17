@@ -30,13 +30,13 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v3
       with:
-        path: '$CUSTOM_DIR'
+        path: '${{ env.CUSTOM_DIR }}'
         fetch-depth: 0
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       with:
-        projectBaseDir: '$CUSTOM_DIR'
+        projectBaseDir: '${{ env.CUSTOM_DIR }}'
         args: >
           -Dsonar.projectVersion=${{ github.ref }}_${{ github.run_number }}
       env:
@@ -58,7 +58,7 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v3
       with:
-        path: '$CUSTOM_DIR'
+        path: '${{ env.CUSTOM_DIR }}'
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
@@ -72,7 +72,7 @@ jobs:
         pip3 install -U -r $CUSTOM_DIR/requirements.txt
 
     - name: Execute Molecule test of role for ${{ matrix.IMAGE }}
-      working-directory: '$CUSTOM_DIR'
+      working-directory: '${{ env.CUSTOM_DIR }}'
       run: DISTRO=${{ matrix.IMAGE }} molecule test
       env:
         PY_COLORS: '1'
