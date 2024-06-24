@@ -17,9 +17,17 @@ Available variables are listed below (located in `defaults/main.yml`):
 ```yaml
 infracost_app: infracost
 infracost_version: 0.10.37
-infracost_os: linux
-infracost_arch: amd64
-infracost_dl_url: https://github.com/{{ infracost_app }}/{{ infracost_app }}/releases/download/v{{ infracost_version }}/{{ infracost_app }}-{{ infracost_os }}-{{ infracost_arch }}.tar.gz
+infracost_os: "{{ ansible_system | lower }}"
+infracost_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+infracost_dl_url: https://github.com/{{ infracost_app }}/{{ infracost_app }}/releases/download/v{{ infracost_version }}/{{ infracost_app }}-{{ infracost_os }}-{{ infracost_architecture_map[ansible_architecture] }}.tar.gz
 infracost_bin_path: /usr/local/bin
 infracost_file_owner: root
 infracost_file_group: root
@@ -32,8 +40,8 @@ Variable                       | Description
 ------------------------------ | -----------------------------------------------------------------------------------------------------------------------------------------------------------
 infracost_app                  | Defines the app to install i.e. **infracost**
 infracost_version              | Defined to dynamically fetch the desired version to install. Defaults to: **0.10.37**
-infracost_os                   | Defines os type. Defaults to: **linux**
-infracost_arch                 | Defines os architecture. Defaults to: **amd64**
+infracost_os                   | Defines os type.
+infracost_architecture_map     | Defines os architecture.
 infracost_dl_url               | Defines URL to download the infracost binary from.
 infracost_bin_path             | Defined to dynamically set the appropriate path to store infracost binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
 infracost_file_owner           | Owner for the binary file of infracost.
