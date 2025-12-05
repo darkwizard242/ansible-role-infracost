@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 infracost_app: infracost
-infracost_version: 0.10.42
+infracost_version: 0.10.43
 infracost_os: "{{ ansible_system | lower }}"
 infracost_architecture_map:
   amd64: amd64
@@ -39,7 +39,7 @@ infracost_file_permission_mode: '0755'
 Variable                       | Description
 ------------------------------ | -----------------------------------------------------------------------------------------------------------------------------------------------------------
 infracost_app                  | Defines the app to install i.e. **infracost**
-infracost_version              | Defined to dynamically fetch the desired version to install. Defaults to: **0.10.42**
+infracost_version              | Defined to dynamically fetch the desired version to install. Defaults to: **0.10.43**
 infracost_os                   | Defines os type.
 infracost_architecture_map     | Defines os architecture.
 infracost_dl_url               | Defines URL to download the infracost binary from.
