@@ -2,7 +2,7 @@
 # defaults file for infracost
 
 infracost_app: infracost
-infracost_version: 0.10.50
+infracost_version: 0.10.51
 infracost_os: "{{ ansible_system | lower }}"
 infracost_architecture_map:
   amd64: amd64
